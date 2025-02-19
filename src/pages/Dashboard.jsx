@@ -43,10 +43,11 @@ export default function Dashboard() {
     { label: 'Dashboard', icon: <FaHome className="Dashboard-icons"/> },
     { label: 'Profile', icon: <FaUser className="Dashboard-icons"/> },
     { label: 'Add/Edit Car', icon: <FaCar className="Dashboard-icons"/> },
-    { label: 'Listings', icon: <FaSearch className="Dashboard-icons"/> },
+    { label: 's', icon: <FaSearch className="Dashboard-icons"/> },
     { label: 'Trip history', icon: <FaHistory className="Dashboard-icons"/> },
     { label: 'Transactions', icon: <FaMoneyBill className="Dashboard-icons"/> },
     { label: 'Reports', icon: <FaFileAlt className="Dashboard-icons"/> },
+    { label: 'how fliits works', icon: <FaSearch className="Dashboard-icons"/> },
     { label: 'Help', icon: <FaQuestionCircle className="Dashboard-icons"/> },
     { label: 'Settings', icon: <FaCog className="Dashboard-icons"/> },
   ];
