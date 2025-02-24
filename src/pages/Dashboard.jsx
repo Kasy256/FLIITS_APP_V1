@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaHome, FaUser, FaCar, FaSearch, FaHistory, FaMoneyBill, FaFileAlt, FaQuestionCircle, FaCog } from 'react-icons/fa'; 
-import '../styles/Dashboard.css';
+import { FaBars, FaHome, FaUser, FaCar, FaSearch, FaHistory, FaMoneyBill, FaFileAlt, FaQuestionCircle, FaCog,FaInfoCircle } from 'react-icons/fa'; 
+import '../styles/';
 
 export default function Dashboard() {
   const [activeNav, setActiveNav] = useState('Dashboard');
