@@ -47,7 +47,7 @@ export default function Dashboard() {
     { label: 'Trip history', icon: <FaHistory className="Dashboard-icons"/> },
     { label: 'Transactions', icon: <FaMoneyBill className="Dashboard-icons"/> },
     { label: 'Reports', icon: <FaFileAlt className="Dashboard-icons"/> },
-    { label: 'how fliits works', icon: <FaSearch className="Dashboard-icons"/> },
+    { label: 'How Fliits Works', icon: <FaInfoCircle className="Dashboard-icons"/> },
     { label: 'Help', icon: <FaQuestionCircle className="Dashboard-icons"/> },
     { label: 'Settings', icon: <FaCog className="Dashboard-icons"/> },
   ];
