@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import CarListingForm from './pages/CarListingForm';
 import AfterSearch from './pages/AfterSearch';
 import CarInfoPage from './pages/CarInfoPage';
-import Dashboard from './pages/Dashboard';
+import  from './pages/Dashboard';
 import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
 import FeedbackForm from './components/FeedbackForm';
