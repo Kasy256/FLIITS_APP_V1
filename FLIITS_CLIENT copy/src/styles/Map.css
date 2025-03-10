@@ -1,0 +1,6 @@
+.map-section {
+    width: 100%;
+    height: 700px; /* Define height as needed */
+    overflow: hidden; /* Prevent the map from spilling out */
+    z-index: -1; /* Keep it below overlay elements */
+  }

@@ -1,0 +1,127 @@
+.Card-container{
+    width: 100%;
+    display: flex;
+    background-color: #d9d9d9;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.car-info{
+    margin: 20px 0 0 20px;
+}
+.car-img{
+    width: 40%;
+    margin: 10px;
+    border-radius: 10px;
+}
+.car-name{
+    display: flex;
+    padding: 3px;
+    font-size: 22px;
+    justify-content: space-between;    
+}
+.car-rating{
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 3px;
+}
+.car-star{
+    font-size: 16px;
+}
+.car-trip{
+    font-size: 18px;
+}
+.car-location p{
+    font-size: 16px;
+    width: auto;
+    margin-top: 10px;
+    padding: 3px;
+}
+.car-price{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 10px;
+    width: auto;
+    margin: 0 0 0 200px;
+}
+@media(max-width: 800px){
+    .car-info{
+        margin: 5px;
+    }
+    .car-img{
+        width: 50%;
+        margin: 0;
+        border-radius: 10px 0 0 10px;
+    }
+    .car-name{
+        padding: 2px;
+        font-size: 18px;
+        overflow: hidden;
+        white-space: wrap;      
+    }
+    .car-rating{
+        font-size: 14px;
+        margin-top: 0;
+        padding: 2px;
+    }
+    .car-star{
+        padding: 5px;
+    }
+    .car-trip{
+        padding: 5px;
+        font-size: 18px;
+    }
+    .car-location p{
+        font-size: 18px;
+        margin-top: 0;
+        padding: 5px;
+    }
+    .car-price{
+        font-size: 24px;
+        padding: 2px;
+        margin: 0 0 0 100px;
+    }
+}
+
+@media(max-width: 400px){
+    .car-info{
+        margin: 5px;
+    }
+    .car-img{
+        width: 50%;
+        margin: 0;
+        border-radius: 10px 0 0 10px;
+    }
+    .car-name{
+        padding: 2px;
+        font-size: 16px;
+        overflow: hidden;
+        white-space: wrap;      
+    }
+    .car-rating{
+        font-size: 10px;
+        margin-top: 0;
+        padding: 2px;
+    }
+    .car-star{
+        padding: 2px;
+        font-size: 12px;
+    }
+    .car-trip{
+        padding: 2px;
+        font-size: 14px;
+    }
+    .car-location p{
+        font-size: 16px;
+        margin-top: 0;
+        padding: 5px;
+    }
+    .car-price{
+        font-size: 18px;
+        padding: 2px;
+        margin: 0 0 0 100px;
+    }
+}
