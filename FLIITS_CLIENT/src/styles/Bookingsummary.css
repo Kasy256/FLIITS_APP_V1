@@ -1,0 +1,95 @@
+.summary-container {
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+.car-section {
+    display: flex;
+    margin: 10px;
+    gap: 20px;
+}
+
+.car-section img {
+    border-radius: 10px;
+}
+
+.basic-feature {
+    display: flex;
+    gap: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.host-info{
+    margin: 10px;
+}
+
+.features-section {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hostlabel {
+    display: flex;
+    gap: 100px;
+}
+
+.H-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.H-reply {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Media query for screens with a max-width of 800px */
+@media (max-width: 800px) {
+    .summary-container {
+        margin: 1px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .car-section,
+    .features-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hostlabel {
+        gap: 50px;
+    }
+    
+}
+
+/* Media query for screens with a max-width of 400px */
+@media (max-width: 400px) {
+    .summary-container {
+        padding: 5px;
+        width: 100%;
+    }
+
+    .car-section,
+    .features-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hostlabel {
+        gap: 10px;
+    }
+    .H-reply {
+        overflow-wrap: break-word;
+    }
+}
