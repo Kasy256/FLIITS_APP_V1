@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// Route to add a new car
 router.post('/add-car', upload.fields([
   { name: 'frontView' },
   { name: 'rearView' },
@@ -50,13 +51,11 @@ router.post('/add-car', upload.fields([
       lateReturnFee,
       cleaningFee,
     } = req.body;
-console.log("rebody",req.body)
-    // Check required fields
+
     if (!model || !year || !licensePlate || !country || !city || !seats || !fuelType || !transmission) {
       return res.status(400).json({ error: 'Required fields are missing' });
     }
 
-    // Create a new car entry
     const newCar = new Car({
       model,
       year,
@@ -92,14 +91,22 @@ console.log("rebody",req.body)
       additionalInfo,
     });
 
-    // Save the car to the database
     await newCar.save();
-console.log(newCar);
-
     return res.status(201).json({ message: 'Car added successfully!', car: newCar });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Something went wrong, please try again.' });
+  }
+});
+
+// Route to fetch all cars
+router.get("/cars", async (req, res) => {
+  try {
+    const cars = await Car.find(); // Fetch all cars from MongoDB
+    res.status(200).json(cars);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch cars" });
   }
 });
 

@@ -743,7 +743,7 @@ const handleSubmit = async (e) => {
         method: 'POST',
         body: formDataToSend,
       });
-
+console.log("resp",response)
       if (!response.ok) {
         throw new Error('Failed to submit form data');
       }
@@ -763,7 +763,6 @@ const handleSubmit = async (e) => {
     }
   }
 };
-
 
 const handleBack = () => {
   setStep(step - 1);
