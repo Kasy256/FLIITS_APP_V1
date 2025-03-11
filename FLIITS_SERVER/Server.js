@@ -5,12 +5,11 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import addCarRoute from './routes/add-car.js'; 
-import searchCar from './routes/search-car.js'; 
+import searchCar from './routes/Search-car.js'; 
 import mainSearchCar from './routes/mainSearch.js'; 
 import path from 'path';
 import { fileURLToPath } from 'url';
-// import profileRoute from './routes/profile.js'; 
-// import searchRoute from './routes/search-route.js'; 
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -29,10 +28,6 @@ app.use(express.json());
 
 // Use the add-car route
 app.use('/api', addCarRoute);
-// In your Express server file (e.g., server.js or routes/car.js)
-
-// Use the profile route
-// app.use('/api', profileRoute);
 
 // Use the search route
 app.use('/api', searchCar);
