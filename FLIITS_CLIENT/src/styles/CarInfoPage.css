@@ -5,7 +5,7 @@
 }
 .car-pics {
     display: flex;
-    padding: 5px; /* Reduce padding for cleaner look */
+    padding: 5px; 
     margin-top: 70px;
     justify-content: center;
     gap: 10px;
@@ -16,20 +16,20 @@
 }
 
 .Main-pic {
-    width: 100%; /* Make the image fill the entire section */
+    width: 100%; 
     border: 1px solid #d9d9d9;
     border-radius: 10px 0 0 10px;
 }
 
 .more-pics {
-    width: 25%; /* Adjust width for thumbnail section */
+    width: 20%; 
     display: flex;
-    flex-direction: column; /* Arrange thumbnails vertically */
+    flex-direction: column; 
 }
 .sub-pics {
-    width: 96%; /* Make thumbnails fill the entire width */
+    width: 100%; 
     border: 1px solid #d9d9d9;
-    margin: 5px 0; /* Adjust margin between thumbnails */
+    margin: 3px 0; 
     border-radius: 0 10px 10px 0;
 }
 .car-info-section{

@@ -5,10 +5,6 @@ html, body {
   flex-direction: column;
 }
 
-.main-content {
-  flex: 1;
-}
-
 .footer {
   background-color: #333;
   color: #fff;
@@ -16,8 +12,7 @@ html, body {
   box-shadow: 0 2px 3px rgba(255, 187, 0, 0.1);
   justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
-  padding-bottom: 10px;
+  bottom: 0;
 }
 
 .footer-content {

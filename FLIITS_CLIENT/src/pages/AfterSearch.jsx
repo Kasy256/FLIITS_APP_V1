@@ -9,10 +9,10 @@ function AfterSearch() {
     const location = useLocation();
     const { searchParams } = location.state || { searchParams: {} };
 
-    const [carData, setCarData] = useState([]); // State to hold fetched car data
-    const [filteredCars, setFilteredCars] = useState([]); // State to hold filtered car data
-    const [loading, setLoading] = useState(true); // State for loading status
-    const [error, setError] = useState(null); // State for error handling
+    const [carData, setCarData] = useState([]); 
+    const [filteredCars, setFilteredCars] = useState([]); 
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null); 
     
 
     useEffect(() => {
@@ -21,13 +21,13 @@ function AfterSearch() {
         // Fetch car data from the backend API
         const fetchCarData = async () => {
             try {
-                const response = await axios.get('/api/cars'); // Replace with your backend URL if needed
-                setCarData(response.data); // Set the fetched data into the state
+                const response = await axios.get('/api/cars'); 
+                setCarData(response.data); 
             } catch (error) {
-                setError('Failed to load car data.'); // Handle error
+                setError('Failed to load car data.'); 
                 console.error(error);
             } finally {
-                setLoading(false); // Set loading to false once data is fetched
+                setLoading(false); 
             }
         };
 
@@ -46,11 +46,11 @@ function AfterSearch() {
     }, [carData, searchParams]);
 
     if (loading) {
-        return <div>Loading...</div>; // You can replace this with a spinner or loading component
+        return <div>Loading...</div>; 
     }
 
     if (error) {
-        return <div>{error}</div>; // Display any errors that occur during fetching
+        return <div>{error}</div>; 
     }
 
     return (
@@ -72,12 +72,12 @@ function AfterSearch() {
                     {filteredCars.length > 0 ? (
                         filteredCars.map((items) => (
                             <CarCard
-                                key={items._id} // Assuming that MongoDB ObjectId is being used
+                                key={items._id} 
                                 items={items}
                             />
                         ))
                     ) : (
-                        <div>No cars available for the selected location.</div> // Handle no results found
+                        <div>No cars available for the selected location.</div> 
                     )}
                 </div>
             </div>

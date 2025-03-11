@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/CarInfoPage.css';
 import { auth } from '../firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
+import PaymentHeader from '../components/PaymentHeader';
 import axios from 'axios';
 
 function CarInfo() {
@@ -103,6 +104,7 @@ function CarInfo() {
 
   return (
     <div>
+      <PaymentHeader />
       <div className="car-pics">
         <div className="main-pic-section">
           <img src={`http://localhost:5000/${car.carPhotos.frontView}`} alt="Car pic" className="Main-pic" />
