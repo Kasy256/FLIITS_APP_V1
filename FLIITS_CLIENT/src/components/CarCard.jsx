@@ -18,7 +18,7 @@ function CarCard({ items }) {
   };
 
   const CarInfo = () => {
-    navigate("/CarInfoPage", { state: { car: items } });
+    navigate("/CarInfoPage", { state: { car: items } }); // Pass car details via state
   };
 
   return (

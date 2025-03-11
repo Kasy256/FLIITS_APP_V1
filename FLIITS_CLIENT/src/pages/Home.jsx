@@ -1,37 +1,59 @@
 import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import BookCarStyle from '../components/BookYourStyle';
-import { Link } from 'react-router-dom';
-import CarImage from '../assets/images/Share.webp'
+import CarImage from '../assets/images/Share.webp';
 import FeedbackButton from '../components/FeedbackButton';
 
 const Home = () => {
+  const [activeSections, setActiveSections] = useState('riders');
+  const [location, setLocation] = useState(null);
+  const navigate = useNavigate();
 
-  const [activeSections, setActiveSections] = useState('riders'); 
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        setLocation({ latitude: userLat, longitude: userLon });
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  };
+
+  const handleBookStyleClick = () => {
+    if (location) {
+      // Pass location to AfterSearch page
+      navigate('/AfterSearch', { state: { searchParams: { location } } });
+    } else {
+      alert('Please enable location to proceed');
+    }
+  };
 
   const showRider = () => {
-    console.log("Riders button clicked"); // Debugging
+    console.log('Riders button clicked');
     setActiveSections('riders');
   };
-  
+
   const showHost = () => {
-    console.log("Hosts button clicked"); // Debugging
+    console.log('Hosts button clicked');
     setActiveSections('hosts');
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    getCurrentLocation();
   }, []);
 
   return (
     <div className="home">
       <Header />
       <Hero />
-      
       <FeedbackButton />
-      {/* Sample Information section */}
+
       <p className="content-heading">Share Your Car With FL<span style={{ color: 'gold' }}>ii</span>TS</p>
       <div className="content-section">
         <div className="content-image">
@@ -46,7 +68,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* How it works section */}
       <div className="works-sections">
         <p className="content-heading">How FL<span style={{ color: 'gold' }}>ii</span>TS Works</p>
@@ -66,7 +88,7 @@ const Home = () => {
             <span className="client-headings">FL<span style={{ color: 'gold' }}>ii</span>TS Host</span>
           </button>
         </div>
-        
+
         <div className="how-we-work-section">
           {activeSections === 'riders' && (
             <div className="works-contents active" id="riders">
@@ -78,7 +100,7 @@ const Home = () => {
               </ul>
             </div>
           )}
-          
+
           {activeSections === 'hosts' && (
             <div className="works-contents active" id="hosts">
               <ul className="hosts-content">
@@ -94,8 +116,9 @@ const Home = () => {
 
       {/* Book your style section */}
       <p className="content-heading">Browse our limitless car sharing marketplace</p><br />
-      <center><Link to='/AfterSearch' className="share-car-button">Book Your Style</Link></center><br />
-      <br />
+      <center>
+        <button onClick={handleBookStyleClick} className="share-car-button">Book Your Style</button>
+      </center><br /><br />
       <BookCarStyle />
     </div>
   );

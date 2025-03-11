@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Route to add a new car
+// Route to add a new car
 router.post('/add-car', upload.fields([
   { name: 'frontView' },
   { name: 'rearView' },
@@ -40,7 +41,7 @@ router.post('/add-car', upload.fields([
       fuelType,
       transmission,
       features,
-      renterConditions,
+      renterConditions,  
       goals,
       additionalInfo,
       dailyRate,
@@ -86,7 +87,7 @@ router.post('/add-car', upload.fields([
         frontInterior: req.files?.frontInterior ? req.files.frontInterior[0].path : '',
         backInterior: req.files?.backInterior ? req.files.backInterior[0].path : '',
       },
-      renterConditions,
+      renterConditions,  
       goals,
       additionalInfo,
     });
@@ -98,6 +99,7 @@ router.post('/add-car', upload.fields([
     return res.status(500).json({ error: 'Something went wrong, please try again.' });
   }
 });
+
 
 // Route to fetch all cars
 router.get("/cars", async (req, res) => {

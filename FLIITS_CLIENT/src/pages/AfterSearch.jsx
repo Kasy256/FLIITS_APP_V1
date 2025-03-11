@@ -8,10 +8,12 @@ import CarCard from '../components/CarCard';
 function AfterSearch() {
     const location = useLocation();
     const { searchParams } = location.state || { searchParams: {} };
-    
+
     const [carData, setCarData] = useState([]); // State to hold fetched car data
+    const [filteredCars, setFilteredCars] = useState([]); // State to hold filtered car data
     const [loading, setLoading] = useState(true); // State for loading status
     const [error, setError] = useState(null); // State for error handling
+    
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -31,6 +33,17 @@ function AfterSearch() {
 
         fetchCarData();
     }, []);
+
+    // Filter cars based on location and date/time when car data is fetched
+    useEffect(() => {
+        if (carData.length > 0 && searchParams.location) {
+            const filtered = carData.filter((car) => {
+                const isLocationMatch = car.city.toLowerCase().includes(searchParams.location.toLowerCase()) || car.country.toLowerCase().includes(searchParams.location.toLowerCase());
+                return isLocationMatch;
+            });
+            setFilteredCars(filtered);
+        }
+    }, [carData, searchParams]);
 
     if (loading) {
         return <div>Loading...</div>; // You can replace this with a spinner or loading component
@@ -53,18 +66,18 @@ function AfterSearch() {
                 </div>
             </div>
             <div className="separater"></div>
-            
+
             <div className="Search-results">
                 <div className="car-results">
-                    {carData.length > 0 ? (
-                        carData.map((items) => (
+                    {filteredCars.length > 0 ? (
+                        filteredCars.map((items) => (
                             <CarCard
                                 key={items._id} // Assuming that MongoDB ObjectId is being used
                                 items={items}
                             />
                         ))
                     ) : (
-                        <div>No cars available for the selected dates.</div> // Handle no results found
+                        <div>No cars available for the selected location.</div> // Handle no results found
                     )}
                 </div>
             </div>
