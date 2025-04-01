@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview"
+    "start": "vite preview",
+    "postinstall": "chmod -R +x node_modules/.bin"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.0",
-    "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.8.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
@@ -28,11 +28,12 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^7.0.1",
     "react-select": "^5.8.3",
-    "select": "^1.1.2",
-    "vite": "^6.2.4"
+    "select": "^1.1.2"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.3",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "vite": "^6.2.4",
+    "@vitejs/plugin-react": "^4.3.4"
   }
 }
