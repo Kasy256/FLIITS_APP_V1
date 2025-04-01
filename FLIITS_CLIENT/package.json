@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
-    "postinstall": "if [ \"$(uname)\" != \"Windows_NT\" ]; then chmod -R +x node_modules/.bin; fi"
+    "postinstall": "node -e \"if (process.platform !== 'win32') require('child_process').execSync('chmod -R +x node_modules/.bin')\""
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.0",
