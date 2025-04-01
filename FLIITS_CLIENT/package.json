@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview",
-    "clean-install": "rm -rf node_modules package-lock.json && npm install"
+    "start": "vite preview"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.0",
