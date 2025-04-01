@@ -6,7 +6,6 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
-    "postinstall": "chmod -R +x node_modules/.bin",
     "clean-install": "rm -rf node_modules package-lock.json && npm install"
   },
   "dependencies": {
