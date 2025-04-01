@@ -23,13 +23,25 @@ function CarCard({ items }) {
 
   return (
     <div className="Card-container" onClick={CarInfo}>
-      <img src={`http://localhost:5000/${items.carPhotos?.frontView}`} alt="Car" className="car-img" />
+      <img
+        src={`${import.meta.env.VITE_SERVER_BASE_URL}/${
+          items.carPhotos?.frontView
+        }`}
+        alt="Car"
+        className="car-img"
+      />
       <div className="car-info">
         <div className="car-name">
-          <h4>{items.model} ({items.year})</h4>
+          <h4>
+            {items.model} ({items.year})
+          </h4>
           <div className="heart-icon">
             <FaHeart
-              style={{ color: iconColor, cursor: "pointer", marginLeft: "10px" }}
+              style={{
+                color: iconColor,
+                cursor: "pointer",
+                marginLeft: "10px",
+              }}
               onClick={handleClick}
             />
           </div>

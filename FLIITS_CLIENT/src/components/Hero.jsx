@@ -1,48 +1,51 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
-import '../styles/Hero.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import "../styles/Hero.css";
 
 const Hero = () => {
-  const [location, setLocation] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
+  const [location, setLocation] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/mainsearch', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          destination: location,
-          startDate,
-          startTime,
-          endDate,
-          endTime
-        })
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/api/mainsearch`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            destination: location,
+            startDate,
+            startTime,
+            endDate,
+            endTime,
+          }),
+        }
+      );
       console.log("099", response);
       if (!response.ok) {
-        throw new Error('Search failed');
+        throw new Error("Search failed");
       }
 
       const availableVehicles = await response.json();
       console.log("availableVehicles", availableVehicles);
-      navigate('/AfterSearch', { 
-        state: { 
+      navigate("/AfterSearch", {
+        state: {
           cars: availableVehicles,
-          searchParams: { location, startDate, endDate, startTime, endTime }
-        }
+          searchParams: { location, startDate, endDate, startTime, endTime },
+        },
       });
     } catch (error) {
-      console.error('Search error:', error);
+      console.error("Search error:", error);
       // Add error state or notification here
     }
   };
@@ -79,7 +82,7 @@ const Hero = () => {
               placeholder="Add Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              onFocus={(e) => (e.target.type = 'date')}
+              onFocus={(e) => (e.target.type = "date")}
               required
             />
             <input
@@ -88,7 +91,7 @@ const Hero = () => {
               placeholder="Add Time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
-              onFocus={(e) => (e.target.type = 'time')}
+              onFocus={(e) => (e.target.type = "time")}
               required
             />
           </div>
@@ -106,7 +109,7 @@ const Hero = () => {
               placeholder="Add Date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              onFocus={(e) => (e.target.type = 'date')}
+              onFocus={(e) => (e.target.type = "date")}
               required
             />
             <input
@@ -115,7 +118,7 @@ const Hero = () => {
               placeholder="Add Time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
-              onFocus={(e) => (e.target.type = 'time')}
+              onFocus={(e) => (e.target.type = "time")}
               required
             />
           </div>

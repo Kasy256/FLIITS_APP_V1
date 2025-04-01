@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import CarCard from "./CarCard"; 
+import CarCard from "./CarCard";
 import axios from "axios";
 
 function CarList() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/add-car") 
+    axios
+      .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/add-car`)
       .then((response) => {
-        setCars(response.data); 
+        setCars(response.data);
       })
       .catch((error) => {
         console.error("Error fetching cars:", error);

@@ -1,62 +1,79 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaHome, FaUser, FaCar, FaSearch, FaHistory, FaMoneyBill, FaFileAlt, FaQuestionCircle, FaCog } from 'react-icons/fa'; 
-import '../styles/Dashboard.css';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaBars,
+  FaHome,
+  FaUser,
+  FaCar,
+  FaSearch,
+  FaHistory,
+  FaMoneyBill,
+  FaFileAlt,
+  FaQuestionCircle,
+  FaCog,
+} from "react-icons/fa";
+import "../styles/Dashboard.css";
 
 export default function Dashboard() {
-  const [activeNav, setActiveNav] = useState('Dashboard');
+  const [activeNav, setActiveNav] = useState("Dashboard");
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sidebarVisible, setSidebarVisible] = useState(false); 
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/userdata', { 
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`, 
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_SERVER_BASE_URL}/api/userdata`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch user data');
+          throw new Error("Failed to fetch user data");
         }
         const data = await response.json();
-        setUser(data); 
+        setUser(data);
       } catch (error) {
-        setError(error.message); 
+        setError(error.message);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
-    fetchUserData(); 
-  }, []); 
+    fetchUserData();
+  }, []);
 
-  const name = user?.fullName || 'Kasy';
-  const email = user?.email || 'jonanrayan06@gmail.com';
+  const name = user?.fullName || "Kasy";
+  const email = user?.email || "jonanrayan06@gmail.com";
 
   const navItems = [
-    { label: 'Dashboard', icon: <FaHome className="Dashboard-icons"/> },
-    { label: 'Profile', icon: <FaUser className="Dashboard-icons"/> },
-    { label: 'Add/Edit Car', icon: <FaCar className="Dashboard-icons"/> },
-    { label: 'Listings', icon: <FaSearch className="Dashboard-icons"/> },
-    { label: 'Trip history', icon: <FaHistory className="Dashboard-icons"/> },
-    { label: 'Transactions', icon: <FaMoneyBill className="Dashboard-icons"/> },
-    { label: 'Reports', icon: <FaFileAlt className="Dashboard-icons"/> },
-    { label: 'Help', icon: <FaQuestionCircle className="Dashboard-icons"/> },
-    { label: 'Settings', icon: <FaCog className="Dashboard-icons"/> },
+    { label: "Dashboard", icon: <FaHome className="Dashboard-icons" /> },
+    { label: "Profile", icon: <FaUser className="Dashboard-icons" /> },
+    { label: "Add/Edit Car", icon: <FaCar className="Dashboard-icons" /> },
+    { label: "Listings", icon: <FaSearch className="Dashboard-icons" /> },
+    { label: "Trip history", icon: <FaHistory className="Dashboard-icons" /> },
+    {
+      label: "Transactions",
+      icon: <FaMoneyBill className="Dashboard-icons" />,
+    },
+    { label: "Reports", icon: <FaFileAlt className="Dashboard-icons" /> },
+    { label: "Help", icon: <FaQuestionCircle className="Dashboard-icons" /> },
+    { label: "Settings", icon: <FaCog className="Dashboard-icons" /> },
   ];
 
   return (
     <div className="dashboard">
-      <aside className={`sidebar ${sidebarVisible ? 'visible' : ''}`}>
+      <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
         <div className="dashboard-logo">
           <Link to="/">
-            FL<span style={{ color: 'gold' }}>ii</span>TS
+            FL<span style={{ color: "gold" }}>ii</span>TS
           </Link>
         </div>
         <nav className="Dashboard-options">
@@ -64,7 +81,7 @@ export default function Dashboard() {
             <a
               key={item.label}
               href="#"
-              className={activeNav === item.label ? 'active' : ''}
+              className={activeNav === item.label ? "active" : ""}
               onClick={() => setActiveNav(item.label)}
             >
               {item.icon}
@@ -81,18 +98,22 @@ export default function Dashboard() {
               <img src="/review 1.jpg" alt="profile" className="Profile" />
             </div>
             <div>
-              <h1 className='header-name'>Hello, {loading ? 'Loading...' : name}</h1>
-              <p className='header-email'>{loading ? 'Fetching data...' : email}</p>
+              <h1 className="header-name">
+                Hello, {loading ? "Loading..." : name}
+              </h1>
+              <p className="header-email">
+                {loading ? "Fetching data..." : email}
+              </p>
             </div>
           </div>
           <div className="notifications">
             <button>🔔</button>
             <button>✉️</button>
           </div>
-          <FaBars 
-            className="header-nav" 
-            id="header-nav" 
-            onClick={() => setSidebarVisible(!sidebarVisible)} 
+          <FaBars
+            className="header-nav"
+            id="header-nav"
+            onClick={() => setSidebarVisible(!sidebarVisible)}
           />
         </header>
 
@@ -115,9 +136,7 @@ export default function Dashboard() {
 
         <div className="chart-section">
           <h3>Weekly Earnings</h3>
-          <div className="chart">
-            {/* Render chart bars */}
-          </div>
+          <div className="chart">{/* Render chart bars */}</div>
         </div>
 
         <div className="table-section">
@@ -131,9 +150,7 @@ export default function Dashboard() {
                 <th>Car Status</th>
               </tr>
             </thead>
-            <tbody>
-              {/* Render customer data */}
-            </tbody>
+            <tbody>{/* Render customer data */}</tbody>
           </table>
         </div>
       </main>
