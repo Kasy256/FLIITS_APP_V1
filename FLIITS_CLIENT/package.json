@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.0",
+    "@vitejs/plugin-react": "^4.3.3",
     "axios": "^1.8.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
@@ -29,14 +30,10 @@
     "react-router-dom": "^7.0.1",
     "react-select": "^5.8.3",
     "select": "^1.1.2",
-    "vite": "^4.5.11",
-    "@vitejs/plugin-react": "^4.3.3"
+    "vite": "^6.2.4"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.3",
     "nodemon": "^3.1.7"
-  },
-  "engines": {
-    "node": ">=23.1.0"
   }
 }
