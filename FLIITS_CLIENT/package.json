@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.0",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.8.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
