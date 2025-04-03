@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 import Car from "../models/Car.js";
 
-router.post("/", async (req, res) => {
+router.post("/mainSearch", async (req, res) => {
   const { destination, startDate, startTime, endDate, endTime } = req.body;
 
   try {
@@ -43,8 +43,9 @@ router.post("/", async (req, res) => {
     // Filter available cars based on availability
     const availableCars = cars.filter((car) => {
       try {
-        const availableDays = car.availabilityDays.map(Number);  // Convert to number for comparison
-        const availableHours = car.availabilityHours.map(Number);  // Convert to number for comparison
+        const availableDays = Number(car.availabilityDays[0]);  
+const availableHours = Number(car.availabilityHours[0]);  
+// console.log("availableDays2",availableDays)
 
         return isCarAvailable(availableDays, availableHours, searchStart, searchEnd);
       } catch (error) {
@@ -54,6 +55,7 @@ router.post("/", async (req, res) => {
     });
 
     // Return the filtered available cars
+    console.log("availableCars",availableCars)
     res.json(availableCars);
 
   } catch (error) {
@@ -66,11 +68,14 @@ router.post("/", async (req, res) => {
 function isCarAvailable(availableDays, availableHours, searchStart, searchEnd) {
   // Calculate total rental days
   const totalDays = calculateTotalDays(searchStart, searchEnd);
-  console.log("Total days needed:", totalDays, "Max allowed:", availableDays);
+  console.log("Total days :", totalDays, " availableDays:", availableDays);
 
   // Check if the car is available for the required number of days
-  if (totalDays > availableDays) return false;
-
+  console.log(totalDays > availableDays)
+  if (totalDays > availableDays){ 
+    return false;
+}
+console.log("after")
   if (totalDays <= 1) {
     // Calculate hours needed per day for hourly rentals
     const hoursPerDay = getMaxHoursPerDay(searchStart, searchEnd);

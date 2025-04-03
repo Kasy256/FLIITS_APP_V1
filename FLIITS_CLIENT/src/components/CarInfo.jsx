@@ -8,7 +8,7 @@ import axios from 'axios'; // Make sure to install axios
 
 function CarInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [car, setCar] = useState(null); // State to hold car details
+   const [car, setCar] = useState(location.state?.car || null); // State to hold car details
   const navigate = useNavigate();
   const { carId } = useParams(); // Assuming carId is passed in the URL params
 
@@ -24,6 +24,7 @@ function CarInfo() {
     if (carId) {
       axios.get(`/api/cars/${carId}`) // Adjust API endpoint accordingly
         .then(response => {
+          console.log("resi",response.data)
           setCar(response.data); // Update state with the fetched data
         })
         .catch(error => {

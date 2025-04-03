@@ -31,8 +31,8 @@ app.use(express.json()); // Allows JSON parsing for incoming requests
 
 // Use the routes
 app.use('/api', addCarRoute);  // For adding and managing cars
-app.use('/api', searchCar);    // For searching cars
-app.use('/api/mainSearch', mainSearchCar);  // For main search
+// app.use('/api', searchCar);    // For searching cars
+app.use('/api', mainSearchCar);  // For main search
 
 // Connect to MongoDB
 mongoose
