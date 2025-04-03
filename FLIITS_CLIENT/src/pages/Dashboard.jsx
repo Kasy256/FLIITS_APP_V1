@@ -1,21 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {
-  FaBars,
-  FaHome,
-  FaUser,
-  FaCar,
-  FaSearch,
-  FaHistory,
-  FaMoneyBill,
-  FaFileAlt,
-  FaQuestionCircle,
-  FaCog,
-} from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import "../styles/Dashboard.css";
+import DashboardSidebar from "../components/DashboardSidebar";
 
 export default function Dashboard() {
-  const [activeNav, setActiveNav] = useState("Dashboard");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -53,44 +41,14 @@ export default function Dashboard() {
   const name = user?.fullName || "Kasy";
   const email = user?.email || "jonanrayan06@gmail.com";
 
-  const navItems = [
-    { label: "Dashboard", icon: <FaHome className="Dashboard-icons" /> },
-    { label: "Profile", icon: <FaUser className="Dashboard-icons" /> },
-    { label: "Add/Edit Car", icon: <FaCar className="Dashboard-icons" /> },
-    { label: "Listings", icon: <FaSearch className="Dashboard-icons" /> },
-    { label: "Trip history", icon: <FaHistory className="Dashboard-icons" /> },
-    {
-      label: "Transactions",
-      icon: <FaMoneyBill className="Dashboard-icons" />,
-    },
-    { label: "Reports", icon: <FaFileAlt className="Dashboard-icons" /> },
-    { label: "Help", icon: <FaQuestionCircle className="Dashboard-icons" /> },
-    { label: "Settings", icon: <FaCog className="Dashboard-icons" /> },
-  ];
 
   return (
     <div className="dashboard">
       <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
-        <div className="dashboard-logo">
-          <Link to="/">
-            FL<span style={{ color: "gold" }}>ii</span>TS
-          </Link>
-        </div>
-        <nav className="Dashboard-options">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href="#"
-              className={activeNav === item.label ? "active" : ""}
-              onClick={() => setActiveNav(item.label)}
-            >
-              {item.icon}
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </nav>
+        <DashboardSidebar />
       </aside>
 
+      {/* Header Sectiion */}
       <main className="main-content">
         <header className="Dashboard-header">
           <div className="user-info">
@@ -117,6 +75,7 @@ export default function Dashboard() {
           />
         </header>
 
+        {/* Main Content Section */}
         <div className="balance-section">
           <div className="balance-card">
             <h3>Available Balance</h3>

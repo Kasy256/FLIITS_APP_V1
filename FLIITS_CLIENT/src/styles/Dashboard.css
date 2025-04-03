@@ -135,11 +135,19 @@
   .chart-section {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     margin: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   }
   
+  .All-Main-Content{
+    height: 70vh; /* To be removed */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
   .chart {
     display: flex;
     height: 200px;

@@ -14,6 +14,7 @@ import FeedbackForm from './components/FeedbackForm';
 import PaymentInfo from './pages/PaymentInfo';
 import './App.css';
 import '@fontsource/roboto'; 
+import DashboardProfile from './pages/DashboardProfile';
 
 function App() {
   
@@ -35,9 +36,9 @@ function App() {
         <Route path="/CarInfoPage" element={<CarInfoPage />} />
         <Route path="/FeedBackForm" element={<FeedbackForm />} />
         <Route path='/PaymentPage' element={<PaymentInfo />} />
+        <Route path="/DashboardProfile" element={<DashboardProfile />} />
         <Route path="/" element={<Home />} />
         </Routes>
-       
         <Footer />
         </div>
       </Router>
