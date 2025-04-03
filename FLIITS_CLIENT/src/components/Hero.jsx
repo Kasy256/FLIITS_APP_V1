@@ -16,12 +16,13 @@ const Hero = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_BASE_URL}/api/mainsearch`,
+        `${import.meta.env.VITE_SERVER_BASE_URL}/api/mainSearch`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+        
           body: JSON.stringify({
             destination: location,
             startDate,
@@ -30,6 +31,7 @@ const Hero = () => {
             endTime,
           }),
         }
+        
       );
       console.log("099", response);
       if (!response.ok) {
