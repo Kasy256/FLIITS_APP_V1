@@ -1,0 +1,75 @@
+/* Card.css - Only card styles */
+/* ===== Stats Cards ===== */ 
+.stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  
+  .stat-value span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .stat-value small {
+    font-size: 0.9rem;
+    color: #888;
+    margin-left: 4px;
+  }
+  
+  /* Card Border Colors */
+  .stat-card.border-primary {
+    border-top-color: #f6c23e;
+  }
+  
+  .stat-card.border-success {
+    border-top-color: #f6c23e;
+  }
+  
+  .stat-card.border-warning {
+    border-top-color: #f6c23e;
+  }
+  
+  /* Card Grid Layout */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Responsive Design for Cards */
+  @media (max-width: 768px) {
+    .stat-card {
+      padding: 15px;
+    }
+    
+    .stat-value span {
+      font-size: 1.5rem;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }

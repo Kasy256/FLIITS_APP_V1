@@ -19,7 +19,7 @@ const DashboardSidebar = () => {
   const navItems = [
     { label: "Dashboard", icon: <FaHome className="Dashboard-icons" />, path: "/Dashboard" },
     { label: "Profile", icon: <FaUser className="Dashboard-icons" />, path: "/DashboardProfile" },
-    { label: "Add/Edit Car", icon: <FaCar className="Dashboard-icons" />, path: "/Dashboard" },
+    { label: "Add/Edit Car", icon: <FaCar className="Dashboard-icons" />, path: "/AddCar" },
     { label: "Listings", icon: <FaSearch className="Dashboard-icons" />, path: "/Dashboard" },
     { label: "Trip history", icon: <FaHistory className="Dashboard-icons" />, path: "/Dashboard" },
     { label: "Transactions", icon: <FaMoneyBill className="Dashboard-icons" />, path: "/Dashboard" },
