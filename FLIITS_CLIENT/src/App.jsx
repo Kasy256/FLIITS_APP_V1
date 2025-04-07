@@ -6,7 +6,10 @@ import Carshare from './pages/Carshare';
 import Home from './pages/Home'; 
 import CarListingForm from './pages/CarListingForm';
 import AfterSearch from './pages/AfterSearch';
-import CarInfoPage from './pages/CarInfoPage';
+import AddCar from './pages/AddCar';
+import Cards from './components/Card';
+import VehicleTable from './components/VehicleTable';
+import CarInfoPage from './Pages/CarInfoPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
@@ -15,6 +18,7 @@ import PaymentInfo from './pages/PaymentInfo';
 import './App.css';
 import '@fontsource/roboto'; 
 import DashboardProfile from './pages/DashboardProfile';
+
 
 function App() {
   
@@ -33,6 +37,9 @@ function App() {
         <Route path="/Carshare" element={<Carshare />} />
         <Route path="/car-listing" element={<CarListingForm />} />
         <Route path="/AfterSearch" element={<AfterSearch/>} />
+        <Route path="/AddCar" element={<AddCar />} />
+        <Route path="/Cards" element={<Cards />} />
+        <Route path="/VehicleTable" element={<VehicleTable />} />
         <Route path="/CarInfoPage" element={<CarInfoPage />} />
         <Route path="/FeedBackForm" element={<FeedbackForm />} />
         <Route path='/PaymentPage' element={<PaymentInfo />} />
