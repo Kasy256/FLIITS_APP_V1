@@ -25,11 +25,19 @@ function CarInfo() {
   const [car, setCar] = useState(location.state.car);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [totalPrice, setTotalPrice] = useState(0); // State for storing the total price
-  const [totalDays, setTotalDays] = useState(0); // State for total days
-  const [totalHours, setTotalHours] = useState(0); // State for total hours
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalDays, setTotalDays] = useState(0);
+  const [totalHours, setTotalHours] = useState(0);
   const navigate = useNavigate();
- 
+
+  // Initialize search parameters from location state or use empty values
+  const [searchParams, setSearchParams] = useState({
+    startDate: location.state?.searchParams?.startDate || "",
+    startTime: location.state?.searchParams?.startTime || "",
+    endDate: location.state?.searchParams?.endDate || "",
+    endTime: location.state?.searchParams?.endTime || "",
+    location: location.state?.searchParams?.location || "",
+  });
 
   // Check if the user is logged in
   useEffect(() => {
@@ -39,39 +47,28 @@ function CarInfo() {
     return () => unsubscribe();
   }, []);
 
-  // Fetch car details and calculate total price based on searchParams
+  // Set loading to false once we have the car data
   useEffect(() => {
-    // console.log(car)   
-    setLoading(false);                                                               
-    // Extract searchParams from location state
-    const { startDate, startTime, endDate, endTime } =
-      location.state?.searchParams || {};
-console.log("gyat",location.state?.searchParams,car )
-    if (startDate && startTime && endDate && endTime) {
-      // Debugging: Log the extracted dates and times
-      console.log("Start Date:", startDate);
-      console.log("Start Time:", startTime);
-      console.log("End Date:", endDate);
-      console.log("End Time:", endTime);
+    if (car) {
+      setLoading(false);
+    }
+  }, [car]);
 
-      // Ensure the values are correctly formatted for date calculations
+  // Calculate total price whenever search parameters change
+  useEffect(() => {
+    const { startDate, startTime, endDate, endTime } = searchParams;
+
+    if (startDate && startTime && endDate && endTime) {
       const fromDateTime = new Date(`${startDate}T${startTime}`);
       const toDateTime = new Date(`${endDate}T${endTime}`);
 
-      // Debugging: Log the resulting Date objects
-      console.log("From DateTime:", fromDateTime);
-      console.log("To DateTime:", toDateTime);
-
-      // Calculate difference in time
       const timeDiff = toDateTime - fromDateTime;
 
       if (timeDiff < 0) {
         setError("End date/time must be after start date/time");
-        setLoading(false);
         return;
       }
 
-      // Calculate total days and hours
       const totalMillisecondsInDay = 1000 * 60 * 60 * 24;
       const totalDaysBooked = Math.floor(timeDiff / totalMillisecondsInDay);
       const totalHoursBooked = Math.floor(
@@ -81,18 +78,31 @@ console.log("gyat",location.state?.searchParams,car )
       setTotalDays(totalDaysBooked);
       setTotalHours(totalHoursBooked);
 
-      // Calculate total price based on daily rate
       const price =
         car.dailyRate * totalDaysBooked +
         (car.dailyRate / 24) * totalHoursBooked;
       setTotalPrice(price);
+      setError(null);
     }
-  }, [location.state]);
+  }, [searchParams, car.dailyRate]);
+
+  const handleSearchParamChange = (field, value) => {
+    setSearchParams(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
 
   // Handle the booking button click
   const handleBookClick = () => {
     if (isLoggedIn) {
-      navigate("/PaymentPage");
+      navigate("/PaymentPage", {
+        state: {
+          car,
+          searchParams,
+          totalPrice
+        }
+      });
     } else {
       navigate(`/Login?redirect=/PaymentPage`);
     }
@@ -231,18 +241,43 @@ console.log("gyat",location.state?.searchParams,car )
           <div className="booking-date-time">
             <p className="from-to-date">From</p>
             <div className="date-time-input">
-              <input type="date" className="book-date-time" />
-              <input className="book-date-time" type="time" />
+              <input 
+                type="date" 
+                className="book-date-time" 
+                value={searchParams.startDate}
+                onChange={(e) => handleSearchParamChange('startDate', e.target.value)}
+              />
+              <input 
+                className="book-date-time" 
+                type="time" 
+                value={searchParams.startTime}
+                onChange={(e) => handleSearchParamChange('startTime', e.target.value)}
+              />
             </div>
             <p className="from-to-date">To</p>
             <div className="date-time-input">
-              <input type="date" className="book-date-time" />
-              <input className="book-date-time" type="time" />
+              <input 
+                type="date" 
+                className="book-date-time" 
+                value={searchParams.endDate}
+                onChange={(e) => handleSearchParamChange('endDate', e.target.value)}
+              />
+              <input 
+                className="book-date-time" 
+                type="time" 
+                value={searchParams.endTime}
+                onChange={(e) => handleSearchParamChange('endTime', e.target.value)}
+              />
             </div>
           </div>
 
           <p className="booking-location">Pickup & return Location</p>
-          <input className="booked-location" type="text" />
+          <input 
+            className="booked-location" 
+            type="text" 
+            value={searchParams.location}
+            onChange={(e) => handleSearchParamChange('location', e.target.value)}
+          />
 
           <div className="inquires-section">
             <button className="inquires-button">Inquires</button>
