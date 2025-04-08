@@ -41,7 +41,7 @@ function CarInfo() {
 
   // Fetch car details and calculate total price based on searchParams
   useEffect(() => {
-    console.log(car)   
+    // console.log(car)   
     setLoading(false);                                                               
     // Extract searchParams from location state
     const { startDate, startTime, endDate, endTime } =

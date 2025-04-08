@@ -78,7 +78,6 @@ const DashboardProfile =()=> {
         <div className="All-Main-Content">
 
         </div>
-
         </main>
     </div>
   )
