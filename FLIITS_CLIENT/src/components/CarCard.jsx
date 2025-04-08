@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaStar, FaHeart, FaMedal, FaMapMarkerAlt } from "react-icons/fa";
 import "../styles/CarCard.css";
 
-function CarCard({ items }) {
+function CarCard({ items,searchParams }) {
   const [iconColor, setIconColor] = useState("black");
   const navigate = useNavigate();
 
@@ -16,9 +16,12 @@ function CarCard({ items }) {
     e.stopPropagation();
     setIconColor(iconColor === "black" ? "gold" : "black");
   };
-
-  const CarInfo = () => {
-    navigate("/CarInfoPage", { state: { car: items } }); // Pass car details via state
+// console.log("fis",searchParams,items)
+  const CarInfo = () => {           
+    navigate("/CarInfoPage", {state: { 
+      car: items,
+      searchParams:searchParams // Pass along the search params
+    } }); // Pass car details via state
   };
 
   return (

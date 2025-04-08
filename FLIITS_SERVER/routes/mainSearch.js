@@ -55,7 +55,7 @@ const availableHours = Number(car.availabilityHours[0]);
     });
 
     // Return the filtered available cars
-    console.log("availableCars",availableCars)
+    // console.log("availableCars",availableCars)
     res.json(availableCars);
 
   } catch (error) {
@@ -68,14 +68,14 @@ const availableHours = Number(car.availabilityHours[0]);
 function isCarAvailable(availableDays, availableHours, searchStart, searchEnd) {
   // Calculate total rental days
   const totalDays = calculateTotalDays(searchStart, searchEnd);
-  console.log("Total days :", totalDays, " availableDays:", availableDays);
+  // console.log("Total days :", totalDays, " availableDays:", availableDays);
 
   // Check if the car is available for the required number of days
-  console.log(totalDays > availableDays)
+  // console.log(totalDays > availableDays)
   if (totalDays > availableDays){ 
     return false;
 }
-console.log("after")
+// console.log("after")
   if (totalDays <= 1) {
     // Calculate hours needed per day for hourly rentals
     const hoursPerDay = getMaxHoursPerDay(searchStart, searchEnd);

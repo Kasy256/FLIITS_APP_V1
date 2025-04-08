@@ -16,7 +16,7 @@ function AfterSearch() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
+console.log(location.state)
     // Fetch car data from the backend API
     const fetchCarData = async () => {
       try {
@@ -90,7 +90,8 @@ function AfterSearch() {
             carData.map((items) => 
             <CarCard 
             key={items._id} 
-            items={items} 
+            items={items}
+            searchParams={searchParams}  
             />)
           ) : (
             <div>No cars available for the selected location.</div>

@@ -21,14 +21,15 @@ import axios from "axios";
 
 function CarInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [car, setCar] = useState(null);
+  const location = useLocation();
+  const [car, setCar] = useState(location.state.car);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0); // State for storing the total price
   const [totalDays, setTotalDays] = useState(0); // State for total days
   const [totalHours, setTotalHours] = useState(0); // State for total hours
   const navigate = useNavigate();
-  const location = useLocation();
+ 
 
   // Check if the user is logged in
   useEffect(() => {
@@ -40,18 +41,12 @@ function CarInfo() {
 
   // Fetch car details and calculate total price based on searchParams
   useEffect(() => {
-    if (location.state?.car) {
-      setCar(location.state.car); // Set car data from state
-      setLoading(false);
-    } else {
-      setError("No car data found");
-      setLoading(false);
-    }
-
+    console.log(car)   
+    setLoading(false);                                                               
     // Extract searchParams from location state
     const { startDate, startTime, endDate, endTime } =
       location.state?.searchParams || {};
-
+console.log("gyat",location.state?.searchParams,car )
     if (startDate && startTime && endDate && endTime) {
       // Debugging: Log the extracted dates and times
       console.log("Start Date:", startDate);

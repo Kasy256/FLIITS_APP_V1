@@ -6,7 +6,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import addCarRoute from './routes/add-car.js'; 
-import searchCar from './routes/Search-car.js'; 
+import carsRouter from './routes/cars.js'; 
 import mainSearchCar from './routes/mainSearch.js'; 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -33,6 +33,7 @@ app.use(express.json()); // Allows JSON parsing for incoming requests
 app.use('/api', addCarRoute);  // For adding and managing cars
 // app.use('/api', searchCar);    // For searching cars
 app.use('/api', mainSearchCar);  // For main search
+app.use('/api/cars', carsRouter);  
 
 // Connect to MongoDB
 mongoose
