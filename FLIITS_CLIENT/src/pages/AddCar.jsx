@@ -22,7 +22,7 @@ const DashboardProfile = () => {
       { id: 4, model: 'Ford Mustang', year: 2018, type: 'Sports', plate: 'UBA 444D', price: '$60/day', status: 'Damaged' },
     ]
   });
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,8 +62,6 @@ const DashboardProfile = () => {
   };
 
   const handleEditCar = (carId) => {
-    // Handle edit logic here
-    console.log('Editing car with ID:', carId);
     navigate(`/edit-car/${carId}`);
   };
 
@@ -72,7 +70,6 @@ const DashboardProfile = () => {
       <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
         <DashboardSidebar />
       </aside>
-      
 
       {/* Header Section */}
       <main className="main-content">
@@ -100,37 +97,19 @@ const DashboardProfile = () => {
           />
         </header>
 
-        {/* Main Content Section */}
-        <div className="All-Main-Content">
-          <div className="stats-grid">
-            <Card 
-              title="Listed Cars" 
-              value={vehicles.listed} 
-              unit="Cars" 
-              color="primary"
-            />
-            <Card 
-              title="Available Cars" 
-              value={vehicles.available} 
-              unit="Cars" 
-              color="success"
-            />
-            <Card 
-              title="Booked Cars" 
-              value={vehicles.booked} 
-              unit="Cars" 
-              color="warning"
-            />
-          </div>
-          
-          {/* Vehicle Table Section */}
+        {/* Car Stats Section */}
+        <div className="balance-section">
+          <Card title="Listed Cars" value={vehicles.listed} unit="Cars" color="primary" />
+          <Card title="Available Cars" value={vehicles.available} unit="Cars" color="success" />
+          <Card title="Booked Cars" value={vehicles.booked} unit="Cars" color="warning" />
+        </div>
+
+        {/* Vehicles Table Section */}
           <VehicleTable 
             vehicles={vehicles.details} 
             onAddCar={handleAddCar}
             onEditCar={handleEditCar}
           />
-        </div>
-        
       </main>
     </div>
   );
