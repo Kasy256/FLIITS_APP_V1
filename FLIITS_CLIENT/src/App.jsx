@@ -11,7 +11,7 @@ import Cards from './components/Card';
 import Bookings from './pages/Bookings'
 import VehicleTable from './components/VehicleTable';
 import TripHistory from './pages/TripHistory'
-import CarInfoPage from './Pages/CarInfoPage';
+import CarInfoPage from './pages/CarInfoPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
