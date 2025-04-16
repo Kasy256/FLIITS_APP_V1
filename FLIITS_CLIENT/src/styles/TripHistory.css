@@ -1,0 +1,215 @@
+/* Trip History Styles */
+.main {
+  display: flex;
+  height: 100vh;
+  font-family: "Arial", sans-serif;
+  background-color: #eee;
+}
+
+.booking-card {
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 30px;
+}
+
+.trip-history-container {
+  padding: 20px;
+  /* background-color: #fff; */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.trip-history-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.trip-history-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* SEARCH */
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000; /* black icon */
+  font-size: 16px;
+  z-index: 2;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* space for the icon */
+  border: 2px solid #ffd700; /* yellow border */
+  border-radius: 20px;
+  font-size: 14px;
+  color: #000; /* 🟢 make typed text black */
+  outline: none; /* remove default blue outline */
+}
+
+.search-input:focus {
+  border-color: #f6c23e; /* 🟡 keep yellow border on focus */
+  outline: none;
+}
+
+
+
+/* FILTERS */
+/* 🟡 Yellow card-style box shadow for filters */
+.filter-options {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 18px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(246, 194, 62, 0.4); /* yellow glow */
+  gap: 20px;
+  position: relative;
+}
+
+
+/* 🗓️ Date filter spacing and style */
+.date-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.calendar-icon {
+  margin-left: 6px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown menu styling stays the same */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  min-width: 150px;
+}
+
+/* Selected option style */
+.dropdown-menu div.selected {
+  background-color: #ffd700;
+  color: white;
+  font-weight: bold;
+}
+
+/* Dropdown */
+.car-model-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  min-width: 150px;
+}
+
+.dropdown-menu div {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu div:hover {
+  background-color: #f5f5f5;
+}
+
+/* Trip Table */
+.trip-table {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 40px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+thead {
+  background-color: #f9f9f9;
+  font-size: 18px;
+}
+
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  font-weight: 600;
+  color: #333;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trip-history-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container,
+  .filter-options {
+    width: 100%;
+  }
+
+  .filter-options {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .filter-options > *:not(:last-child)::after {
+    display: none;
+  }
+}

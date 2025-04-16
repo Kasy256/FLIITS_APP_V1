@@ -1,17 +1,15 @@
-/* VehicleTable.css - Focused only on vehicle table styles */
 /* ===== Vehicle Table Section ===== */
 .vehicles-section {
-  background: white;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 18px;
   color: #2c3e50;
-  margin-bottom: 1.5rem;
+  margin-bottom: 18px;
   font-weight: 600;
 }
 
@@ -25,27 +23,27 @@
 .vehicles-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 14px;
 }
 
-.vehicles-table th {
-  background-color: #f6c23e;
+/* .vehicles-table th {
+  background-color: #ffd700;
   padding: 12px 15px;
   text-align: left;
   font-weight: 600;
   color: #495057;
-  border-bottom: 2px solid #dee2e6;
-}
+  border-bottom: 2px solid   #dcdcdc;
+} */
 
-.vehicles-table td {
+/* .vehicles-table td {
   padding: 12px 15px;
   border-bottom: 1px solid #eaeaea;
   vertical-align: middle;
-}
+} */
 
-.vehicles-table tr:last-child td {
+/* .vehicles-table tr:last-child td {
   border-bottom: none;
-}
+} */
 
 .vehicles-table tr:hover {
   background-color: #f8f9fa;
@@ -53,7 +51,7 @@
 
 /* ===== Table Buttons ===== */
 .edit-btn {
-  background-color: #f6c23e;
+  background-color: #ffd700;
   color: black;
   border: none;
   padding: 8px 16px;
@@ -67,7 +65,6 @@
 }
 
 .edit-btn:hover {
-  background-color: #f6c23e;
   transform: translateY(-1px);
 }
 
@@ -77,7 +74,7 @@
 }
 
 .add-car-btn {
-  background-color: #f6c23e;
+  background-color: #ffd700;
   color: black;
   border: none;
   padding: 12px 24px;
@@ -93,23 +90,18 @@
 }
 
 .add-car-btn:hover {
-  background-color: #f6c23e;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3);
 }
 
 /* ===== Responsive Table ===== */
 @media (max-width: 768px) {
-  .vehicles-section {
-    padding: 1rem;
-  }
-  
   .vehicles-table th,
   .vehicles-table td {
     padding: 10px 12px;
     font-size: 0.85rem;
   }
-  
+
   .add-car-btn {
     width: 100%;
     justify-content: center;
