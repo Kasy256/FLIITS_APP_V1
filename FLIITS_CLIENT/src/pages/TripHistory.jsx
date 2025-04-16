@@ -89,7 +89,7 @@ const TripHistory = () => {
   };
 
   return (
-    <div className="main">
+    <div className="Trip-History-container">
       {/* Sidebar */}
       <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
         <DashboardSidebar />
@@ -123,6 +123,7 @@ const TripHistory = () => {
           />
         </header>
 
+        <div className="bookings-main">
         {/* Title Section */}
         <div className="page-title">
           <h2 className="trip-history-title">Trip History</h2>
@@ -223,6 +224,7 @@ const TripHistory = () => {
               )}
             </tbody>
           </table>
+        </div>
         </div>
       </main>
     </div>

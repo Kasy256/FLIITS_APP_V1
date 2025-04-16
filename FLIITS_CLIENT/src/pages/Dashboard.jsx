@@ -144,41 +144,11 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Booking Summary Cards by Status */}
-        {/* <div className="summary-section grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
-          {["Pending", "Confirmed", "Cancelled", "Complete"].map((status) => (
-            <div
-              key={status}
-              className="bg-white p-4 rounded-2xl shadow-md border border-gray-200"
-            >
-              <h3 className="text-sm font-semibold text-gray-600">{status}</h3>
-              <p className="text-2xl font-bold text-gray-900">
-                {statusCounts[status] || 0}
-              </p>
-            </div>
-          ))}
-        </div> */}
 
         {/* Chart Section */}
         <div className="chart-section">
           <h3>Weekly Earnings</h3>
           <div className="chart">{/* Render chart bars */}</div>
-        </div>
-
-        {/* Table Section */}
-        <div className="table-section">
-          <table>
-            <thead>
-              <tr>
-                <th>Customer Name</th>
-                <th>License ID</th>
-                <th>Date</th>
-                <th>Amount Paid ($)</th>
-                <th>Car Status</th>
-              </tr>
-            </thead>
-            <tbody>{/* Render customer data */}</tbody>
-          </table>
         </div>
       </main>
     </div>

@@ -1,13 +1,6 @@
-/* ===== Layout Wrappers ===== */
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-x: visible;
-    box-sizing: border-box;
-  }
   
   .bookings-main {
-    padding-top: 20px;
+    padding: 10px;
   }
   
   /* ===== Bookings Header ===== */
@@ -15,9 +8,10 @@
   .bookings-header {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     font-size: 100px;
     flex-wrap: wrap;
+    gap: 15px;
   }
   
   .bookings-title {
@@ -29,12 +23,9 @@
   
   .search-box {
     display: flex;
-    align-items: center;
     border-radius: 40px;
     max-width: 250px;
     width: 100%;
-    margin-left: 2px;
-    margin-right: 70px;
   }
   
   .search-icon {
@@ -48,7 +39,7 @@
   
   .search-input {
     flex: 1;
-    font-size: 14px;
+    font-size: 12px;
     background: transparent;
     color: #333;
     border: none;
@@ -69,11 +60,10 @@
     background-color: #fff;
     padding: 5px 20px;
     border-radius: 12px;
-    margin-bottom: 15px;
     border: 1px solid #f0f0f0;
     box-shadow: 0 0 6px rgba(246, 194, 62, 0.4);
     flex-wrap: wrap;
-    margin-top: 90px;
+    margin-top: 20px;
   }
   
   .tab-button {
@@ -114,7 +104,7 @@
   
   .booking-table {
     width: 100%;
-    margin-top: 24px;
+    margin-top: 20px;
   }
   
   .booking-table table {
@@ -124,7 +114,6 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 100px;
   }
   
   .booking-table th

@@ -97,7 +97,7 @@ const DashboardProfile = () => {
           />
         </header>
 
-        {/* Car Stats Section */}
+        <div className="bookings-main">
         <div className="balance-section">
           <Card title="Listed Cars" value={vehicles.listed} unit="Cars" color="primary" />
           <Card title="Available Cars" value={vehicles.available} unit="Cars" color="success" />
@@ -110,6 +110,7 @@ const DashboardProfile = () => {
             onAddCar={handleAddCar}
             onEditCar={handleEditCar}
           />
+        </div>
       </main>
     </div>
   );

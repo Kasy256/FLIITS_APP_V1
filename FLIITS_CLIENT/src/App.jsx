@@ -20,6 +20,8 @@ import PaymentInfo from './pages/PaymentInfo';
 import './App.css';
 import '@fontsource/roboto'; 
 import DashboardProfile from './pages/DashboardProfile';
+import HelpPage from './pages/HelpPage';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
         <Route path="/FeedBackForm" element={<FeedbackForm />} />
         <Route path='/PaymentPage' element={<PaymentInfo />} />
         <Route path="/DashboardProfile" element={<DashboardProfile />} />
+        <Route path="/HelpPage" element={<HelpPage />} />
+        <Route path="/Settings" element={<Settings />} />
         <Route path="/" element={<Home />} />
         </Routes>
         <Footer />

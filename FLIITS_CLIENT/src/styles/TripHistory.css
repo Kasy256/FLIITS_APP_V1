@@ -1,21 +1,20 @@
 /* Trip History Styles */
-.main {
+.Trip-History-container {
   display: flex;
-  height: 100vh;
-  font-family: "Arial", sans-serif;
-  background-color: #eee;
+  height: auto;
+  background-color: #f6f6f6;
 }
 
 .booking-card {
   /* background-color: #fff; */
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
   margin-bottom: 30px;
 }
 
 .trip-history-container {
-  padding: 20px;
+  padding: 10px;
   /* background-color: #fff; */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -188,9 +187,6 @@ th {
   color: #333;
 }
 
-tbody tr:hover {
-  background-color: #f5f5f5;
-}
 
 /* Responsive */
 @media (max-width: 768px) {

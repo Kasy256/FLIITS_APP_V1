@@ -1,19 +1,18 @@
 /* ===== Vehicle Table Section ===== */
 .vehicles-section {
-  background-color: white;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  
+  background-color: #f6f6f6;
+  margin-top: 20px;
 }
 
 .section-title {
-  font-size: 18px;
-  color: #2c3e50;
+  font-size: 24px;
+  color: #333;
   margin-bottom: 18px;
   font-weight: 600;
 }
 
 .table-container {
+  background-color: white;
   overflow-x: auto;
   margin-bottom: 2rem;
   border-radius: 8px;
