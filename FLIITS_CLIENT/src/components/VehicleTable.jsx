@@ -3,9 +3,9 @@ import '../styles/VehicleTable.css';
 
 const VehicleTable = ({ vehicles, onAddCar, onEditCar }) => {
   return (
-    <div className="vehicles-section">
+    <section className="vehicles-section">
       <h2 className="section-title">My Cars</h2>
-      
+
       <div className="table-container">
         <table className="vehicles-table">
           <thead>
@@ -31,10 +31,7 @@ const VehicleTable = ({ vehicles, onAddCar, onEditCar }) => {
                   {vehicle.status}
                 </td>
                 <td>
-                  <button 
-                    className="edit-btn" 
-                    onClick={() => onEditCar(vehicle.id)}
-                  >
+                  <button className="edit-btn" onClick={() => onEditCar(vehicle.id)}>
                     <FaEdit /> Edit
                   </button>
                 </td>
@@ -49,7 +46,8 @@ const VehicleTable = ({ vehicles, onAddCar, onEditCar }) => {
           <FaPlus /> Add New Car
         </button>
       </div>
-    </div>
+    </section>
   );
 };
+
 export default VehicleTable;

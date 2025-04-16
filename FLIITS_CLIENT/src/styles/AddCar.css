@@ -1,24 +1,9 @@
 
-.main-content {
-  flex: 1;
-  background-color: #f8fafc;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 60px; /* Space for footer */
-}
 
-.All-Main-Content {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  flex: 1;
-}
-
-/* ===== Responsive Design ===== */
+/* === Responsive Design === */
 @media (max-width: 768px) {
   .All-Main-Content {
     padding: 1rem;
   }
- 
+
 }

@@ -8,7 +8,9 @@ import CarListingForm from './pages/CarListingForm';
 import AfterSearch from './pages/AfterSearch';
 import AddCar from './pages/AddCar';
 import Cards from './components/Card';
+import Bookings from './pages/Bookings'
 import VehicleTable from './components/VehicleTable';
+import TripHistory from './pages/TripHistory'
 import CarInfoPage from './Pages/CarInfoPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -39,6 +41,8 @@ function App() {
         <Route path="/AfterSearch" element={<AfterSearch/>} />
         <Route path="/AddCar" element={<AddCar />} />
         <Route path="/Cards" element={<Cards />} />
+        <Route path="/Bookings" element={<Bookings/>} />
+        <Route path="/TripHistory" element={<TripHistory/>}/>
         <Route path="/VehicleTable" element={<VehicleTable />} />
         <Route path="/CarInfoPage" element={<CarInfoPage />} />
         <Route path="/FeedBackForm" element={<FeedbackForm />} />

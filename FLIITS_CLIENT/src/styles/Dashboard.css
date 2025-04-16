@@ -1,3 +1,38 @@
+.booking-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 8px;
+  gap: 20px;
+}
+
+.booking-count {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.booking-count .count {
+  font-size: 1.5rem;
+  margin-right: 4px;
+}
+
+.booking-status {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.booking-status label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  gap: 4px;
+  margin: 0; /* no extra vertical spacing */
+  padding: 1px 0; /* slight breathing room */
+  cursor: pointer;
+}
+
  .dashboard {
     display: flex;
     height: auto;
