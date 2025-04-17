@@ -1,16 +1,9 @@
-
 // vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import commonjs from '@rollup/plugin-commonjs'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    commonjs(),
-    nodeResolve()
-  ],
+  plugins: [react()],
   build: {
     commonjsOptions: {
       transformMixedEsModules: true
@@ -19,7 +12,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // Backend server
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
       },

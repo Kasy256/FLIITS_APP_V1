@@ -8,8 +8,10 @@ import CarListingForm from './pages/CarListingForm';
 import AfterSearch from './pages/AfterSearch';
 import AddCar from './pages/AddCar';
 import Cards from './components/Card';
+import Bookings from './pages/Bookings'
 import VehicleTable from './components/VehicleTable';
-import CarInfoPage from './Pages/CarInfoPage';
+import TripHistory from './pages/TripHistory'
+import CarInfoPage from './pages/CarInfoPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
@@ -18,6 +20,8 @@ import PaymentInfo from './pages/PaymentInfo';
 import './App.css';
 import '@fontsource/roboto'; 
 import DashboardProfile from './pages/DashboardProfile';
+import HelpPage from './pages/HelpPage';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -39,11 +43,15 @@ function App() {
         <Route path="/AfterSearch" element={<AfterSearch/>} />
         <Route path="/AddCar" element={<AddCar />} />
         <Route path="/Cards" element={<Cards />} />
+        <Route path="/Bookings" element={<Bookings/>} />
+        <Route path="/TripHistory" element={<TripHistory/>}/>
         <Route path="/VehicleTable" element={<VehicleTable />} />
         <Route path="/CarInfoPage" element={<CarInfoPage />} />
         <Route path="/FeedBackForm" element={<FeedbackForm />} />
         <Route path='/PaymentPage' element={<PaymentInfo />} />
         <Route path="/DashboardProfile" element={<DashboardProfile />} />
+        <Route path="/HelpPage" element={<HelpPage />} />
+        <Route path="/Settings" element={<Settings />} />
         <Route path="/" element={<Home />} />
         </Routes>
         <Footer />

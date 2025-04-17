@@ -10,6 +10,8 @@ const RentalDetail = () => {
   const [returnDate, setReturnDate] = useState(searchParams?.endDate || '');
   const [pickupLocation, setPickupLocation] = useState(searchParams?.location || '');
   const [returnLocation, setReturnLocation] = useState(''); 
+  const [totalDays, setTotalDays] = useState(0);
+  const [totalHours, setTotalHours] = useState(0);
 
   useEffect(() => {
     if (searchParams) {
@@ -17,6 +19,25 @@ const RentalDetail = () => {
       setReturnDate(searchParams.endDate);
       setPickupLocation(searchParams.location);
       setReturnLocation(searchParams.location); 
+
+      // Calculate total days and hours
+      if (searchParams.startDate && searchParams.startTime && 
+          searchParams.endDate && searchParams.endTime) {
+        const fromDateTime = new Date(`${searchParams.startDate}T${searchParams.startTime}`);
+        const toDateTime = new Date(`${searchParams.endDate}T${searchParams.endTime}`);
+
+        const timeDiff = toDateTime - fromDateTime;
+        if (timeDiff > 0) {
+          const totalMillisecondsInDay = 1000 * 60 * 60 * 24;
+          const totalDaysBooked = Math.floor(timeDiff / totalMillisecondsInDay);
+          const totalHoursBooked = Math.floor(
+            (timeDiff % totalMillisecondsInDay) / (1000 * 60 * 60)
+          );
+
+          setTotalDays(totalDaysBooked);
+          setTotalHours(totalHoursBooked);
+        }
+      }
     }
   }, [searchParams]);
 
@@ -61,8 +82,8 @@ const RentalDetail = () => {
       <div>
         <p className='DateTime-results-total'>
           <h2>Total Days/Hours: </h2>
-          <p>1 Day</p>
-          <p>12 Hours</p>
+          <p>{totalDays} {totalDays === 1 ? 'Day' : 'Days'}</p>
+          <p>{totalHours} {totalHours === 1 ? 'Hour' : 'Hours'}</p>
         </p>
       </div>
     </div>
