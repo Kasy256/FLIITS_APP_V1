@@ -19,9 +19,9 @@ function CarCard({ items,searchParams }) {
 // console.log("fis",searchParams,items)
   const CarInfo = () => {           
     navigate("/CarInfoPage", {state: { 
-      car: items,
+      car: items,// Pass car details via state
       searchParams:searchParams // Pass along the search params
-    } }); // Pass car details via state
+    } }); 
   };
 
   return (

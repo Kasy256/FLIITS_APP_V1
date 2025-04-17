@@ -21,8 +21,8 @@ import axios from "axios";
 
 function CarInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const location = useLocation();
-  const [car, setCar] = useState(location.state.car);
+  const location = useLocation(); 
+  const [car, setCar] = useState(location.state.car);//set car to state directly
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0); // State for storing the total price
@@ -42,17 +42,17 @@ function CarInfo() {
   // Fetch car details and calculate total price based on searchParams
   useEffect(() => {
     // console.log(car)   
-    setLoading(false);                                                               
+    setLoading(false);//important to keep page from loading endlessly                                                               
     // Extract searchParams from location state
     const { startDate, startTime, endDate, endTime } =
       location.state?.searchParams || {};
-console.log("gyat",location.state?.searchParams,car )
+// console.log("gyat",location.state?.searchParams,car )
     if (startDate && startTime && endDate && endTime) {
       // Debugging: Log the extracted dates and times
-      console.log("Start Date:", startDate);
-      console.log("Start Time:", startTime);
-      console.log("End Date:", endDate);
-      console.log("End Time:", endTime);
+      // console.log("Start Date:", startDate);
+      // console.log("Start Time:", startTime);
+      // console.log("End Date:", endDate);
+      // console.log("End Time:", endTime);
 
       // Ensure the values are correctly formatted for date calculations
       const fromDateTime = new Date(`${startDate}T${startTime}`);
