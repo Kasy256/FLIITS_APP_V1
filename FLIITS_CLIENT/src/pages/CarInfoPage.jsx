@@ -49,25 +49,10 @@ function CarInfo() {
 
   // Set loading to false once we have the car data
   useEffect(() => {
-<<<<<<< HEAD
-    // console.log(car)   
-    setLoading(false);//important to keep page from loading endlessly                                                               
-    // Extract searchParams from location state
-    const { startDate, startTime, endDate, endTime } =
-      location.state?.searchParams || {};
-// console.log("gyat",location.state?.searchParams,car )
-    if (startDate && startTime && endDate && endTime) {
-      // Debugging: Log the extracted dates and times
-      // console.log("Start Date:", startDate);
-      // console.log("Start Time:", startTime);
-      // console.log("End Date:", endDate);
-      // console.log("End Time:", endTime);
-=======
     if (car) {
       setLoading(false);
     }
   }, [car]);
->>>>>>> 92b2ae474a352d90609b8be397973739d8c9209c
 
   // Calculate total price whenever search parameters change
   useEffect(() => {
